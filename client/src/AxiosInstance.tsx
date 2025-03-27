@@ -19,6 +19,17 @@ AxiosInstance.interceptors.request.use((config) => {
   return config;
 });
 
-AxiosInstance.interceptors.request.use((response) => {
-  return response;
-});
+AxiosInstance.interceptors.request.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response.status != 422) {
+      console.error("Unexpected response error: ", error);
+    }
+
+    return Promise.reject(error);
+  }
+);
+
+export default AxiosInstance;
