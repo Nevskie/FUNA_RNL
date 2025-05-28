@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const menuItems = [
     {
-      route: "/",
+      route: "/genders",
       title: "Genders",
     },
     {
@@ -90,22 +90,23 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <span className="navbar-text mr-3">{handleUserFullName()}</span>
-
-        <button
-          type="submit"
-          className="btn btn-danger"
-          onClick={handleLogout}
-          disabled={loadingLogout}
-        >
-          {loadingLogout ? (
-            <>
-              <SpinnerSmall /> Logging Out...
-            </>
-          ) : (
-            "Logout"
-          )}
-        </button>
+        <span className="navbar-text me-3">{handleUserFullName()}</span>
+        <div className="d-flex align-items-center ms-auto">
+          <button
+            type="submit"
+            className="btn btn-danger"
+            onClick={handleLogout}
+            disabled={loadingLogout}
+          >
+            {loadingLogout ? (
+              <>
+                <SpinnerSmall /> Logging Out...
+              </>
+            ) : (
+              "Logout"
+            )}
+          </button>
+        </div>
       </div>
     </nav>
   );
